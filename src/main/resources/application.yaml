@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: game_sys_demo
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/game_sys_demo?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 19750912mm
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  # 映射配置文件扫描目录
+  mapper-locations: classpath:mapper/*.xml
+  # 实体类所在的包
+  type-aliases-package: com.example.demo.entity
+
+  configuration:
+    # 日志输出到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启驼峰命令
+    map-underscore-to-camel-case: true
