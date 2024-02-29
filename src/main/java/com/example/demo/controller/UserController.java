@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -10,29 +11,22 @@ import javax.annotation.Resource;
 @RequestMapping("/user")
 public class UserController {
 
-    @Resource
-    private UserMapper userMapper;
+    @Autowired
+    private UserService userService;
     @PostMapping
-    public String addUser(@RequestBody User user){
-        int insert = userMapper.insert(user);
-        return String.valueOf(insert);
+    public String add(@RequestBody User user){
+        return userService.add(user);
     }
     @DeleteMapping
-    public String deletUser(@RequestParam Integer id){
-        int delete = userMapper.deleteById(id);
-        return String.valueOf(delete);
+    public String delet(@RequestParam Integer id){
+        return userService.delet(id);
     }
     @PutMapping
-    public String updateUser(@RequestBody User user){
-        System.out.println("test2");
-        if (user.getId() == null){
-            return "id is no found!";
-        }
-        int update = userMapper.updateById(user);
-        return String.valueOf(update);
+    public String update(@RequestBody User user){
+        return userService.update(user);
     }
     @GetMapping
-    public User getUser(@RequestParam Integer id){
-        return userMapper.selectById(id);
+    public User get(@RequestParam Integer id){
+        return userService.get(id);
     }
 }

@@ -6,17 +6,17 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.Getter;
 
-@TableName("user")
+import java.lang.reflect.Type;
+
+@TableName("game")
 @Data
 @Getter
-public class User {
+public class Game {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    private String username;
+    private String name;
 
-    private String password;
-
-    private String nickname;
+    private String company;
 
 }
