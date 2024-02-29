@@ -18,7 +18,7 @@ public class UserController {
         return String.valueOf(insert);
     }
     @DeleteMapping
-    public String deletUser(@RequestBody Integer id){
+    public String deletUser(@RequestParam Integer id){
         int delete = userMapper.deleteById(id);
         return String.valueOf(delete);
     }
@@ -32,10 +32,7 @@ public class UserController {
         return String.valueOf(update);
     }
     @GetMapping
-    public User getUser(@RequestBody Integer id){
-        System.out.println(" ");
-        System.out.println("数据已收到，为："+id);
-        System.out.println(" ");
+    public User getUser(@RequestParam Integer id){
         return userMapper.selectById(id);
     }
 }
