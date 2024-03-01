@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import org.springframework.stereotype.Service;
@@ -10,8 +11,13 @@ import javax.annotation.Resource;
 public class UserService {
     @Resource
     private UserMapper userMapper;
-
     public String add(User user){
+        QueryWrapper<User> qw = new QueryWrapper();
+        String username = user.getUsername();
+        qw.eq("username", username);
+        if(userMapper.selectList(qw).size() != 0){
+            return "Username is already taken!";
+        }
         int insert = userMapper.insert(user);
         return String.valueOf(insert);
     }
@@ -29,5 +35,6 @@ public class UserService {
     public User get(Integer id){
         return userMapper.selectById(id);
     }
+
 }
 

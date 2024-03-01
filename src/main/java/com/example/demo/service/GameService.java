@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.demo.mapper.GameMapper;
 import com.example.demo.model.Game;
 import org.springframework.stereotype.Service;
