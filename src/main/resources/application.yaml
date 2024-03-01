@@ -4,8 +4,8 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/game_sys_demo?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 19750912mm
+    username:      # your username
+    password:      # your password
     type: com.alibaba.druid.pool.DruidDataSource
 
 mybatis:
